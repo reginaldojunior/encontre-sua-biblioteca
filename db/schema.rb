@@ -15,26 +15,4 @@ ActiveRecord::Schema.define(version: 2019_11_20_132043) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "endangereds", force: :cascade do |t|
-    t.string "name"
-    t.string "iucn"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "posts", force: :cascade do |t|
-    t.text "body"
-    t.integer "shark_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["shark_id"], name: "index_posts_on_shark_id"
-  end
-
-  create_table "sharks", force: :cascade do |t|
-    t.string "name"
-    t.text "facts"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
 end
