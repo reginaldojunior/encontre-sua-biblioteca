@@ -1,37 +1,12 @@
-FROM ruby:2.5.1-alpine
+FROM ruby:2.5.1
 
 ENV BUNDLER_VERSION=2.0.2
 
-RUN apk add --update --no-cache \
-      binutils-gold \
-      build-base \
-      curl \
-      file \
-      g++ \
-      gcc \
-      git \
-      less \
-      libstdc++ \
-      libffi-dev \
-      libc-dev \
-      linux-headers \
-      libxml2-dev \
-      libxslt-dev \
-      libgcrypt-dev \
-      make \
-      netcat-openbsd \
-      nodejs \
-      openssl \
-      pkgconfig \
-      postgresql-dev \
-      python \
-      tzdata \
-      yarn
+RUN apt-get update -qq && apt-get install -y build-essential curl
 
 RUN gem install bundler -v 2.0.2
 
 WORKDIR /app
 COPY Gemfile Gemfile.lock ./
-RUN bundle config build.nokogiri --use-system-libraries
-RUN bundle check || bundle install
+RUN bundle install
 COPY . ./
