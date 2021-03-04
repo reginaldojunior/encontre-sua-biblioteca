@@ -14,6 +14,8 @@ O que é? Esse projeto tem como objetivo facilitar a procura pelas bibliotecas e
 ## Instalando
 
  - `docker-compose build app`
+ - `docker-compose run --rm app bin/rails db:create RAILS_ENV=development`
+ - `docker-compose run --rm app bin/rails db:migrate RAILS_ENV=development`
  - `docker-compose up -d app`
 
 Você já pode acessar a rota `http://localhost:3000` que verá a mensagem de boas vindas.
@@ -21,6 +23,8 @@ Você já pode acessar a rota `http://localhost:3000` que verá a mensagem de bo
 ## Testes
 
  - `docker-compose build test`
+ - `docker-compose run --rm app bin/rails db:create RAILS_ENV=test`
+ - `docker-compose run --rm app bin/rails db:migrate RAILS_ENV=test`
  - `docker-compose run --rm test rspec ./spec`
 
 # Contribuindo
