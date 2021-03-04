@@ -1,0 +1,30 @@
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
+Layout/LineLength:
+  Max: 120
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+
+AllCops:
+  NewCops: enable
+  Exclude:     
+    - 'test/test_helper.rb'
+    - 'db/schema.rb'
+    - 'bin/bundle'
+    - 'spec/rails_helper.rb'
+    - 'spec/spec_helper.rb'

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddEndangeredWorker
   require 'csv'
   include Sidekiq::Worker
@@ -5,8 +7,7 @@ class AddEndangeredWorker
 
   def perform(csv_file)
     CSV.foreach(csv_file, headers: true) do |shark|
-    Endangered.create(name: shark[0], iucn: shark[1])
+      Endangered.create(name: shark[0], iucn: shark[1])
+    end
   end
- end
-
 end
