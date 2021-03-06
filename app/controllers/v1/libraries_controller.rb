@@ -7,6 +7,21 @@ module V1
       render json: result
     end
 
+    def index
+      render json: [
+        {
+          lat: "-32.654654",
+          lng: "-36.654654",
+          name: "Library Malcom X"
+        },
+        {
+          lat: "-32.654654",
+          lng: "-36.654654",
+          name: "Library Malcom Dandara"
+        }
+      ]
+    end
+
     private
 
     def valid_params

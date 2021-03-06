@@ -3,6 +3,39 @@
 require_relative '../rails_helper'
 
 RSpec.describe 'Library Request', type: :request do
+  context '[GET] /v1/library list library near on location' do
+    before { get '/v1/library', params: params }
+
+    context 'When has librarys near on location' do
+      let(:params) do
+        {
+          lat: "-32.56465465",
+          lng: "-35.65656659"
+        }
+      end
+      let(:response_expected) do
+        [
+          {
+            lat: "-32.654654",
+            lng: "-36.654654",
+            name: "Library Malcom X"
+          },
+          {
+            lat: "-32.654654",
+            lng: "-36.654654",
+            name: "Library Malcom Dandara"
+          }
+        ]
+      end
+
+      it 'return ten librarys more near' do
+        body = JSON.parse(response.body)
+        body = body.map { |library| library.deep_symbolize_keys }
+        expect(body).to eq response_expected
+      end
+    end
+  end
+
   context '[POST] /v1/library Add a nem library' do
     before { post '/v1/library', params: params }
 
