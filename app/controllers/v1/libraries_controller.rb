@@ -13,7 +13,8 @@ module V1
       return render json: { error: 'latitude field not found' }, status: 400 if params['latitude'].nil?
       return render json: { error: 'longitude field not found' }, status: 400 if params['longitude'].nil?
 
-      result = Library.within(DISTANCE_MAXIMUM, :units => :kms, :origin => [params['latitude'], params['longitude']]).limit(10).all
+      result = Library.within(DISTANCE_MAXIMUM, units: :kms,
+                                                origin: [params['latitude'], params['longitude']]).limit(10).all
       render json: result
     end
 
