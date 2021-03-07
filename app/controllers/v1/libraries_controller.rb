@@ -2,25 +2,19 @@
 
 module V1
   class LibrariesController < ApplicationController
+    DISTANCE_MAXIMUM = 30
+
     def create
       result = Library.create(valid_params)
-      render json: result
+      render json: result, status: 201
     end
 
     def index
-      # result = Library.where
-      render json: [
-        {
-          lat: '-32.654654',
-          lng: '-36.654654',
-          name: 'Library Malcom X'
-        },
-        {
-          lat: '-32.654654',
-          lng: '-36.654654',
-          name: 'Library Malcom Dandara'
-        }
-      ]
+      return render json: { error: 'latitude field not found' }, status: 400 if params['latitude'].nil?
+      return render json: { error: 'longitude field not found' }, status: 400 if params['longitude'].nil?
+
+      result = Library.within(DISTANCE_MAXIMUM, :units => :kms, :origin => [params['latitude'], params['longitude']]).limit(10).all
+      render json: result
     end
 
     private
