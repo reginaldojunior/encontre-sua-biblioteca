@@ -4,16 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Library, type: :model do
   context 'CRUD' do
-    let(:library) do
-      Library.create(
-        name: 'Biblioteca Dandara',
-        description: 'Biblioteca Dandara, uma biblioteca comunitária',
-        image_src: 'https://url.com.br/image.jpg',
-        latitude: -23.090809890,
-        longitude: -32.123190899,
-        disponible: 0
-      )
-    end
+    let(:library) { FactoryBot.create(:library) }
     let(:update_library) do
       Library.first.update(name: 'Biblioteca Zumbi dos Palmares')
     end
@@ -35,19 +26,19 @@ RSpec.describe Library, type: :model do
 
       context 'when read by location origin' do
         let(:libraries_praia_grande) do
-          Library.create(name: 'test praia grande',
-                         latitude: -24.040680,
-                         longitude: -46.513160)
+          FactoryBot.create(:library, name: 'test praia grande',
+                                      latitude: -24.040680,
+                                      longitude: -46.513160)
         end
         let(:libraries_jurema) do
-          Library.create(name: 'test jurema',
-                         latitude: -23.430300,
-                         longitude: -46.517750)
+          FactoryBot.create(:library, name: 'test jurema',
+                                      latitude: -23.430300,
+                                      longitude: -46.517750)
         end
         let(:libraries_centro_guarulhos) do
-          Library.create(name: 'test guarulhos',
-                         latitude: -23.454338,
-                         longitude: -46.533669)
+          FactoryBot.create(:library, name: 'test guarulhos',
+                                      latitude: -23.454338,
+                                      longitude: -46.533669)
         end
         let(:lat_avenida_jurema) { -23.4508001 }
         let(:lng_avenida_jurema) { -46.4076736 }

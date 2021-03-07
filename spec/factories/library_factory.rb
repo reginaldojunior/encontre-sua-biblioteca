@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
-# This will guess the User class
 FactoryBot.define do
-  factory :user do
-    first_name { 'John' }
-    last_name  { 'Doe' }
-    admin { false }
+  factory :library do
+    name { 'Biblioteca Dandara' }
+    description { 'Biblioteca Dandara, biblioteca comunitaria' }
+    latitude { -23.90832 }
+    longitude { -22.90832 }
+    image_src { 'https://url.com.br/image.jpg' }
+    disponible { 0 }
   end
 end
