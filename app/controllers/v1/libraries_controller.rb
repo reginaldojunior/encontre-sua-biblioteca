@@ -8,17 +8,17 @@ module V1
     end
 
     def index
-      result = Library.where()
+      # result = Library.where
       render json: [
         {
-          lat: "-32.654654",
-          lng: "-36.654654",
-          name: "Library Malcom X"
+          lat: '-32.654654',
+          lng: '-36.654654',
+          name: 'Library Malcom X'
         },
         {
-          lat: "-32.654654",
-          lng: "-36.654654",
-          name: "Library Malcom Dandara"
+          lat: '-32.654654',
+          lng: '-36.654654',
+          name: 'Library Malcom Dandara'
         }
       ]
     end

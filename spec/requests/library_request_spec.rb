@@ -9,28 +9,28 @@ RSpec.describe 'Library Request', type: :request do
     context 'When has librarys near on location' do
       let(:params) do
         {
-          lat: "-32.56465465",
-          lng: "-35.65656659"
+          lat: '-32.56465465',
+          lng: '-35.65656659'
         }
       end
       let(:response_expected) do
         [
           {
-            lat: "-32.654654",
-            lng: "-36.654654",
-            name: "Library Malcom X"
+            lat: '-32.654654',
+            lng: '-36.654654',
+            name: 'Library Malcom X'
           },
           {
-            lat: "-32.654654",
-            lng: "-36.654654",
-            name: "Library Malcom Dandara"
+            lat: '-32.654654',
+            lng: '-36.654654',
+            name: 'Library Malcom Dandara'
           }
         ]
       end
 
       it 'return ten librarys or disponibles more near' do
         body = JSON.parse(response.body)
-        body = body.map { |library| library.deep_symbolize_keys }
+        body = body.map(&:deep_symbolize_keys)
         expect(body).to eq response_expected
       end
     end

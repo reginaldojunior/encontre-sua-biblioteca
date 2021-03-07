@@ -57,7 +57,8 @@ RSpec.describe Library, type: :model do
           libraries_jurema
           libraries_centro_guarulhos
 
-          expect(Library.by_distance(:origin => [lat_avenida_jurema, lng_avenida_jurema]).first[:name]).to eq 'test jurema'
+          expect(Library.by_distance(origin: [lat_avenida_jurema,
+                                              lng_avenida_jurema]).first[:name]).to eq 'test jurema'
         end
       end
     end
