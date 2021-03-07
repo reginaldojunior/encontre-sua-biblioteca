@@ -35,11 +35,13 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'sidekiq', '~>6.0.0'
 gem 'rack-cors'
+gem 'geokit-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rubocop', '~> 1.11', require: false
+  gem 'database_cleaner-active_record'
 end
 
 group :development do

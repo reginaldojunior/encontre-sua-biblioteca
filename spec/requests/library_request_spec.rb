@@ -28,7 +28,7 @@ RSpec.describe 'Library Request', type: :request do
         ]
       end
 
-      it 'return ten librarys more near' do
+      it 'return ten librarys or disponibles more near' do
         body = JSON.parse(response.body)
         body = body.map { |library| library.deep_symbolize_keys }
         expect(body).to eq response_expected

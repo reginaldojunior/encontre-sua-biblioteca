@@ -8,6 +8,7 @@ module V1
     end
 
     def index
+      result = Library.where()
       render json: [
         {
           lat: "-32.654654",
