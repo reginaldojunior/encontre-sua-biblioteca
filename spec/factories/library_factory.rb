@@ -7,6 +7,6 @@ FactoryBot.define do
     latitude { -23.90832 }
     longitude { -22.90832 }
     image_src { 'https://url.com.br/image.jpg' }
-    disponible { 0 }
+    disponible { 1 }
   end
 end

@@ -14,7 +14,8 @@ module V1
       return render json: { error: 'longitude field not found' }, status: 400 if params['longitude'].nil?
 
       result = Library.within(DISTANCE_MAXIMUM, units: :kms,
-                                                origin: [params['latitude'], params['longitude']]).limit(10).all
+                                                origin: [params['latitude'], params['longitude']])
+                      .where(disponible: true).limit(10).all
       render json: result
     end
 
