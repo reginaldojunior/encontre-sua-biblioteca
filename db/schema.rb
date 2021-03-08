@@ -10,21 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_04_210722) do
+ActiveRecord::Schema.define(version: 2021_03_06_233429) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "endangereds", force: :cascade do |t|
+    t.string "name"
+    t.string "iucn"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "libraries", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.string "image_src"
-    t.string "latitude"
     t.string "decimal"
-    t.string "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "disponible"
+    t.decimal "latitude", precision: 10, scale: 6
+    t.decimal "longitude", precision: 10, scale: 6
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.text "body"
+    t.integer "shark_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shark_id"], name: "index_posts_on_shark_id"
+  end
+
+  create_table "sharks", force: :cascade do |t|
+    t.string "name"
+    t.text "facts"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

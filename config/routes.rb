@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   namespace :v1 do
-    resource :library, only: %i[create]
+    get 'library', controller: 'libraries', action: 'index'
+    post 'library', controller: 'libraries', action: 'create'
   end
 end
