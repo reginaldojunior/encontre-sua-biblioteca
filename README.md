@@ -27,6 +27,10 @@ Você já pode acessar a rota `http://localhost:3000` que verá a mensagem de bo
  - `docker-compose run --rm app bin/rails db:migrate RAILS_ENV=test`
  - `docker-compose run --rm test rspec ./spec`
 
+## Arquitetura
+
+![Captura de tela de 2021-03-09 13-48-18](https://user-images.githubusercontent.com/7466894/110507161-89ec6c80-80de-11eb-81e5-6012ecb8afaa.png)
+
 # Contribuindo
 
 Para contribuir basta clonar esse repositório instalar e sugerir alterações através de Pull Requests. Você também pode abrir issues de sugestões com melhorias.
