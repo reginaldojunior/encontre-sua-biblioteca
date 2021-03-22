@@ -1,0 +1,12 @@
+language: ruby
+
+services:
+  - docker-compose
+
+before_install:
+  - docker-compose build test 
+  - docker-compose run --rm app bin/rails db:create RAILS_ENV=test
+  - docker-compose run --rm app bin/rails db:migrate RAILS_ENV=test
+
+script:
+  - docker-compose run --rm test rspec ./spec
