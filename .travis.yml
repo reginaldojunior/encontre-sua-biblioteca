@@ -4,9 +4,21 @@ services:
   - docker-compose
 
 before_install:
+  - sudo apt-get update
+  - sudo apt-get install -o Dpkg::Options::="--force-confold" --force-yes -y docker-engine
+  - docker-compose --version
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+  - docker-compose --version
+  - docker-compose pull
   - docker-compose build test 
   - docker-compose run --rm app bin/rails db:create RAILS_ENV=test
   - docker-compose run --rm app bin/rails db:migrate RAILS_ENV=test
 
 script:
   - docker-compose run --rm test rspec ./spec
+
+env:
+  DOCKER_COMPOSE_VERSION: 1.8.0
