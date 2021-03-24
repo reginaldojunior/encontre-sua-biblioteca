@@ -1,4 +1,4 @@
-FROM ruby:2.5.1
+FROM ruby:2.7.2
 
 ENV BUNDLER_VERSION=2.0.2
 
