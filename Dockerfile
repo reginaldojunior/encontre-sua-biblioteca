@@ -8,5 +8,6 @@ RUN gem install bundler -v 2.0.2
 
 WORKDIR /app
 COPY Gemfile Gemfile.lock ./
+RUN bundle update mimemagic
 RUN bundle install
 COPY . ./

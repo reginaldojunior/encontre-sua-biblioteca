@@ -11,7 +11,7 @@
 
 This path allow see health application
 
-#### [GET] /healthcheck
+#### [GET] /
 
 ```
     { message: 'Welcome' }
@@ -20,6 +20,11 @@ This path allow see health application
 ### Libraries
 
 #### [POST] /libraries
+
+- Headers:
+    - Content-Type: application/json
+
+Body JSON Parameters
 
 ##### Body
 
@@ -52,7 +57,12 @@ This path allow see health application
 
 #### [GET] /libraries
 
+- Headers:
+    - Content-Type: application/json
+
 ##### Parameters
+
+Query Parameters
 
 ```
     {
